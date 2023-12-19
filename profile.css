@@ -1,0 +1,62 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    width: 100%;
+}
+.header {
+    text-align: right;
+}
+.header-item {
+    margin-right: 10px;
+}
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.profile {
+    margin-top: 20px;
+    background-color: #e9ecf2;
+    padding-bottom: 20px;
+    padding: 20px;
+    width: 50%;
+}
+.desc {
+    margin-top: 20px;
+    background-color: #e9ecf2;
+    padding-bottom: 20px;
+    padding: 20px;
+    width: 50%;
+}
+.name {
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: 24px;
+}
+.contact {
+    padding-left: 20px;
+}
+.desc-item {
+    display: flex;
+    flex-direction: row;
+}
+.desc-title {
+    font-weight: 700;
+    margin-right: 20px;
+    width: 40%;
+}
+.form {
+    padding: 20px;
+}
+.form-item {
+    margin-top: 10px;
+    width: 100%;
+}
+.form-input {
+    width: 100%;
+}
+.contact-button {
+    background-color: aqua;
+    border-radius: 3px;
+}

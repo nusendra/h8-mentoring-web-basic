@@ -1,0 +1,55 @@
+.header {
+    background-color: azure;
+    border: 1px solid black;
+    padding: 20px 5px 5px 5px;
+    margin: 5px 5px 5px 5px;
+    width: 50%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.warna {
+    color: white;
+    font-weight: 700;
+    font-style: italic;
+}
+#custom-style {
+    background-color: blue;
+}
+.kustom-style {
+    background-color: red;
+}
+
+.kustom-style span.sub-warna {
+    color: yellow;
+}
+.kustom-style span.sub-color {
+    color: blue;
+}
+
+/* ini code untuk ganti background paragraf */
+
+p {
+    background-color: yellow;
+}
+
+a {
+    color: aquamarine;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table td, th {
+    border: 1px solid black;
+    padding: 5px;
+    margin: px;
+}
+
+th {
+    background-color: bisque;
+}
+
+ul li {
+    list-style-type: lower-roman;
+}
