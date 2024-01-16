@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Umur <input id="umur">
+    <button onclick="cekUmur()">CEK !</button>
+
+    <form id="orangTua" style="display: none;">
+        <div>Form untuk orang tua</div>
+        <div>Nama : <input></div>
+    </form>
+
+    <form id="muda" style="display: none;">
+        <div>Form untuk anak muda</div>
+        <div>Nama : <input></div>
+    </form>
+    
+</body>
+</html>
+
+<script>
+    const batasUmur = 50;
+
+    function cekUmur() {
+        let umur = document.getElementById("umur").value;
+
+        if (umur >= batasUmur) {
+            document.getElementById("orangTua").style.display = "";
+            document.getElementById("muda").style.display = "none";
+        } else {
+            document.getElementById("orangTua").style.display = "none";
+            document.getElementById("muda").style.display = "";
+        }
+    }
+
+
+
+
+
+    let x = 12;
+    let y = "string";
+
+    // boolean
+    let a = true;
+    let b = false;
+
+    let e = 1;
+    let f = 0;
+    let g = null;
+    // let h = undefined;
+    let i = ""; // empty string
+
+    let angka1 = 5;
+
+    if (angka1 > 10) {
+        console.log('angka besar');
+    } else if (angka1 == 10) {
+        console.log('angka pas');
+    } else {
+        console.log('angka kecil');
+    }
+
+    console.log("-------");
+    console.log("5" == 5);
+    console.log("10" === 10);
+
+    let harga = 110000;
+
+    if (harga > 100000) {
+        console.log('selamat, dapat')
+    } else {
+        console.log('terima kasih')
+    }
+
+    switch(true) {
+        case harga > 100000:
+            console.log('selamat, dapat 1')
+            break;
+        case harga > 50000:
+            console.log('selamat, dapat 2')
+            break;
+        default:
+            console.log('terima kasih')
+    }
+
+    let umur1 = 20;
+    let umur2 = 2;
+
+    if (umur1 >= 5 && umur2 >= 5) { // true && false
+        // semuanya harus true / benar
+        console.log('remaja');
+    } else {
+        console.log('balita');
+    }
+
+    if (umur1 >= 30 || umur2 >= 5) { // true && false
+        // salah satu harus true / benar
+        console.log('remaja');
+    } else {
+        console.log('balita');
+    }
+
+    // ternary operator
+    console.log(umur1 > 15 ? "remaja" : "balita");
+
+    // sama dengan if else biasa
+    if (umur1 > 15) {
+        console.log('remaja');
+    } else {
+        console.log('balita');
+    }
+
+</script>

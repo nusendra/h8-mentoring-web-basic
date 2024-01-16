@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar JS Function</title>
+</head>
+<body>
+   <div class="profile">Hacktiv8</div> 
+   <div id="age">30</div> 
+   <div name="profile">Hacktiv8</div> 
+
+   <br>
+
+   <input id="num1" type="number">
+   <input id="num2" type="number">
+   <div>Hasil : <span id="hasil"></span></div>
+
+   <button onclick="submit('tambah')" style="margin-top: 10px">TAMBAHKAN !!</button>
+   <button onclick="submit('kurang')" style="margin-top: 10px">KURANG !!</button>
+</body>
+</html>
+
+<style>
+    #age {
+        color: yellow;
+    }
+</style>
+
+<script>
+    function add(angka1, angka2) {
+        angka1 = parseInt(angka1);
+        angka2 = parseInt(angka2);
+
+        let hasil = angka1 + angka2;
+        return hasil;
+    }
+
+    function deduct(angka1, angka2) {
+        angka1 = parseInt(angka1);
+        angka2 = parseInt(angka2);
+
+        let hasil = angka1 - angka2;
+        return hasil;
+    }
+
+    function submit(type) {
+        let num1 = document.getElementById("num1").value
+        let num2 = document.getElementById("num2").value
+
+        let result = 0;
+        if (type == 'tambah') {
+            result = add(num1, num2);
+        } else if (type == 'kurang') {
+            result = deduct(num1, num2);
+        }
+
+        document.getElementById("hasil").innerHTML = result;
+
+        if (result > 50) {
+            document.getElementById("hasil").style.color = "green";
+        } else {
+            document.getElementById("hasil").style.color = "red";
+        }
+    }
+
+
+    var a = 30;
+    var b = 10;
+
+    if (a > 40 ) {
+        document.getElementById("age").style.color = "red";
+    } else if (a < 50) {
+        document.getElementById("age").style.color = "blue";
+    } else {
+        document.getElementById("age").style.color = "green";
+    }
+
+    // console.log(document.getElementsByName("profile").length)
+    document.getElementById("age").innerHTML = "halo teman teman";
+    // document.getElementsByClassName("profile").innerHTML = "halo teman teman";
+
+    // ------------
+
+    // f(x) = X + X
+
+   function tambah(angka1, angka2) {
+        let hasil = angka1 + angka2;
+        console.log(hasil);
+   }
+
+//    tambah(2, 3);
+
+   function currency(angka) {
+        let hasil = angka.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+
+        return hasil;
+   }
+
+   let hasilCurrency = currency(10000000);
+
+   console.log(hasilCurrency);
+
+   const formatter = (angka) => {
+        let hasil = angka.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+        hasil = "Rp" + hasil;
+
+        return hasil;
+   }
+
+    let formatted = formatter(10000000);
+    console.log(formatted);
+</script>

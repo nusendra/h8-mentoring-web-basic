@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    // repeat
+    let name = 'hacktiv8';
+
+    console.log(name.repeat(10));
+
+    // for loop
+    let hewan = "elang"
+    for (let iteration = 0; iteration < 10; iteration++ ) {
+        console.log(`${hewan} - ${iteration}`)
+    }
+
+    let orang = ["adi", "budi", "candra", "dedi"];
+    // console.log(orang.length);
+    // console.log(orang[1]);
+
+    for (let i = 0; i < orang.length; i++) {
+        console.log(orang[i])
+    }
+
+    let masyarakat = [
+        {
+            name: "adi",
+            umur: 20
+        },
+        {
+            name: "budi",
+            umur: 22
+        },
+        {
+            name: "candra",
+            umur: 25
+        },
+    ];
+
+    for (let i = 0; i < masyarakat.length; i++) {
+        console.log(`saya ${masyarakat[i].name} umur ${masyarakat[i].umur}`);
+    }
+
+    const fruits = ["apple", "orange", "cherry"];
+    fruits.forEach((item) => {
+        console.log(item)
+    });
+
+    masyarakat.forEach((item, index) => {
+        console.log(`saya ${item.name} umur ${item.umur} - ${index}`);
+    });
+
+    let text = "";
+    for (let i = 0; i < 15; i++) {
+        for (let j = 0; j <= 15; j++) {
+            text = text + "*";
+            // console.log(text);
+        }
+        text = text + "\n" // new line
+    }
+    console.log(text);
+
+    // ---------
+
+    const perumahan = [
+        {
+            nomor: "1A",
+            orang: ['ayah', 'ibu', 'anak laki2']
+        },
+        {
+            nomor: "2A",
+            orang: ['ibu', 'tante', 'anak perempuan', 'tante', 'anak perempuan']
+        },
+    ]
+
+    for (let i = 0; i < perumahan.length; i++) {
+        console.log(`yang tinggal di rumah ${perumahan[i].nomor} adalah :`)
+        for (let j = 0; j < perumahan[i].orang.length; j++) {
+            console.log(perumahan[i].orang[j]);
+        }
+    }
+
+    let bulat = "";
+    for (let i = 0; i < 10; i++) {
+        // bulat = bulat + "OOOO ";
+        bulat += "0000 ";
+    }
+
+    console.log(bulat);
+</script>
