@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+</html>
+
+<script>
+    let keluarga = ["ayah", "ibu", "kakak", "adik"];
+
+    console.log(keluarga.join());
+
+    let employees = [
+        {
+            name: "adi",
+            age: 25
+        },
+        {
+            name: "budi",
+            age: 25
+        },
+        {
+            name: "candra",
+            age: 25
+        },
+    ]
+    
+    // object berisi property key dan value
+    let manusia = {
+        name: "adi",
+        alamat: "Jakarta",
+        berjalan() {
+            console.log("saya bisa berjalan")
+        },
+        makan() {
+            console.log("saya bisa makan")
+        },
+        bicara() {
+            console.log(`nama saya adalah ${this.name}`)
+        },
+        bergerak(type) {
+            console.log(`saya bergerak dengan cara ${type}`);
+        },
+        melakukan(aksi = 'bekerja') {
+            console.log(`saya sedang ${aksi}`);
+        },
+        makananFavorit: [
+            "roti", "mie", "buah"
+        ]
+    }
+
+    manusia.name = "budi";
+
+    console.log(manusia);
+    console.log(manusia.name);
+
+    manusia.bicara()
+    manusia.bergerak("berjalan");
+
+    manusia.melakukan('berenang');
+
+    // ------------ 
+    let produk = [
+      {
+        name: "jack wireless",
+        price: 249000,
+        kota: 'tangerang',
+        rating: 4.8,
+        terjual: 250
+      } ,
+      {
+        name: "jack wireless",
+        price: 249000,
+        kota: 'tangerang',
+        rating: 4.8,
+        terjual: 250
+      } ,
+    ]
+
+    // produk.unshift({
+    //     name: "baju",
+    //     price: 249000,
+    //     kota: 'tangerang',
+    //     rating: 4.8,
+    //     terjual: 250
+    // })
+
+    // produk.pop()
+
+    console.log(produk)
+
+    let angka = [7,1,8,2]
+    console.log(angka.sort())
+</script>

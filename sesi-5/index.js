@@ -14,7 +14,7 @@ let nama3 = "saladin"; //mutable
 
 nama3 = "nusendra";
 
-console.log(nama3);
+console.log(nama3 + nama2);
 
 // var, let, const
 

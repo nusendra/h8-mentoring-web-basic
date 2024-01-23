@@ -86,10 +86,12 @@
 
    function tambah(angka1, angka2) {
         let hasil = angka1 + angka2;
-        console.log(hasil);
+
+        return hasil;
    }
 
-//    tambah(2, 3);
+   let piring = tambah(2, 3);
+   console.log(piring)
 
    function currency(angka) {
         let hasil = angka.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
