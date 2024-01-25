@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    const object = {
+        nama_depan: "nusendra",
+        nama_belakang: "hanggarawan",
+        hobi: ["main game", "nonton"],
+        angka_favorit: 1,
+        memakai_kacamata: false,
+    }
+
+    console.log(JSON.stringify(object))
+    // JSON = JavaScript Object Notation
+    // JSON.stringify = untuk mengubah object menjadi bentuk string
+    // JSON.parse = untuk mengubah string menjadi object
+
+    // contoh object ke string
+    const bla = '{"nama_depan":"nusendra","nama_belakang":"hanggarawan","hobi":["main game","nonton"],"angka_favorit":1,"memakai_kacamata":false}'
+    console.log(JSON.parse(bla))
+
+    console.log(`${object.nama_depan} ${object.nama_belakang}`);
+
+    object.angka_favorit = 2;
+    console.log(object);
+
+    object.hobi.push('blogging');
+    console.log(object);
+
+    object.lulusan = 'hacktiv8';
+    console.log(object);
+
+    object.hobi.forEach(item => {
+        console.log(item)
+    });
+
+    const objectArray = Object.entries(object);
+    console.log(objectArray);
+    objectArray.forEach(item => {
+        console.log(`Key : ${item[0]}, value: ${item[1]}`)
+    });
+</script>

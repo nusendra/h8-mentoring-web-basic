@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    const perhitungan = (angka) => {
+        if (typeof angka !== 'number') return "invalid data";
+
+        if (angka % 2 === 0) return 'genap';
+
+        return 'ganjil'
+    }
+
+    console.log(perhitungan(2)); // genap
+    console.log(perhitungan(3)); // ganjil
+    console.log(perhitungan(20)); // genap
+    console.log(perhitungan(21)); // ganjil
+    console.log(perhitungan('asdfasdfasdf')); // invalid data
+</script>
