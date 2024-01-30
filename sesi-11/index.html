@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    function reverseString(text) {
+        // const array = text.split("");
+        // const reversed = array.reverse();
+        // const result = reversed.join("");
+        
+        // return result;
+
+        return text.split("").reverse().join("");
+    }
+
+    console.log(reverseString('Hello world'))
+    console.log(reverseString('John Doe'))
+    
+
+
+
+
+    function urutHuruf(text) {
+        return text.split("").sort().join("");
+    }
+
+    console.log(urutHuruf("halo"))
+    console.log(urutHuruf("qwerty"))
+
+    
+
+
+
+
+    function isArithmeticProgression(numbers) {
+        const selisih = numbers[1] - numbers[0];
+
+        for (let i = 0; i < numbers.length - 1; i++) {
+            if (numbers[i + 1] - numbers[i] !== selisih) {
+                return false
+            }
+        }
+
+        return true;
+    }
+
+    console.log(isArithmeticProgression([1,2,3,4,5]))
+    console.log(isArithmeticProgression([2,4,6,12,24]))
+    console.log(isArithmeticProgression([2,4,6,8]))
+
+
+    console.log("----- Three Steps AB -----")
+
+
+
+    function threeStepsAB(text) {
+        const array = text.split("")
+
+        for (let i = 0; i < text.length; i++) {
+            if (array[i] === 'a' || array[i] === 'b') {
+                if (array[i + 4] === 'a' || array[i + 4] === 'b') {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+
+    }
+    console.log(threeStepsAB('lane borrowed'))
+    console.log(threeStepsAB('i am sick'))
+    console.log(threeStepsAB('you are boring'))
+    console.log(threeStepsAB('barbarian'))
+
+
+
+    console.log("FPB")
+
+
+    function gcd_two_numbers(x, y) {
+        if ((typeof x !== 'number') || (typeof y !== 'number')) 
+            return false;
+
+        x = Math.abs(x);
+        y = Math.abs(y);
+
+        while(y) {
+            var t = y;
+            y = x % y;
+            x = t;
+        }
+
+        return x;
+    }
+
+
+    console.log(gcd_two_numbers(12,16))
+    console.log(gcd_two_numbers(50,40))
+    console.log(gcd_two_numbers(22,99))
+
+
+
+    console.log('---- PRIME')
+
+
+
+
+    function isPrime(number) {
+        if (number < 2) {
+            return false
+        }
+
+        for (let i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i === 0) {
+                return false
+            }
+        }
+
+        return true 
+    }
+
+    console.log(isPrime(3))
+    console.log(isPrime(7))
+    console.log(isPrime(6))
+    console.log(isPrime(23))
+    console.log(isPrime(33))
+
+
+
+    function listPrima(angkaPertama, angkaKedua) {
+        let prima = [];
+
+        for (let i = angkaPertama; i <= angkaKedua; i++) {
+            if (isPrime(i)) {
+                prima.push(i)
+            }
+        }
+
+        return prima;
+    }
+
+
+    console.log(listPrima(1,5))
+    console.log(listPrima(5,10))
+    console.log(listPrima(10,20))
+
+
+
+
+    function compareNumbers(firstNumber, secondNumber) {
+        if (secondNumber > firstNumber) return true;
+        else if (secondNumber === firstNumber) return -1;
+        else return false;
+    }
+
+    console.log(compareNumbers(5,8))
+    console.log(compareNumbers(5,3))
+    console.log(compareNumbers(4,4))
+    console.log(compareNumbers(3,3))
+    console.log(compareNumbers(17,2))
+</script>
