@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    const kumpulanAngka = [27, 38, 4, 43, 9, 82 ,10];
+
+    const selectionSort = (array) => {
+        const totalItem = array.length;
+
+        for(let i = 0; i < totalItem; i++) {
+            let minimum = i;
+
+            for (let j = i + 1; j < totalItem; j++) {
+                if (array[j] < array[minimum]) {
+                    minimum = j;
+                }
+            }
+
+            if (minimum != i) {
+                let a = array[i];
+                array[i] = array[minimum];
+                array[minimum] = a;
+            }
+        }
+
+        return array;
+    }
+
+    const insertionSort = (array) => {
+        let length = array.length;
+
+        for (let i = 1; i < length; i++) {
+            let key = array[i];
+
+            let j = i - 1;
+            while (j >= 0 && array[j] > key) {
+                array[j+1] = array[j];
+                j = j-1;
+            }
+
+            array[j + 1] = key
+        }
+
+        return array;
+    }
+
+    const merge = (a, b) => {
+        let sorted = [];
+        while (a.length && b.length) {
+            if (a[0] <= b[0]) {
+                sorted.push(a[0]);
+                a = a.slice(1);
+            } else {
+                sorted.push(b[0]);
+                b = b.slice(1);
+            }
+        }
+
+        while (a.length) {
+            sorted.push(a.shift());
+        }
+        while (b.length) {
+            sorted.push(b.shift());
+        }
+        return sorted;
+    }
+
+    const mergeSort = (array) => {
+        if (array.length < 2) {
+            return array;
+        } else {
+            let midpoint = parseInt(array.length / 2);
+            let a = array.slice(0, midpoint);
+            let b = array.slice(midpoint, array.length);
+
+            return merge(mergeSort(a), mergeSort(b));
+        }
+    }
+
+    console.log(selectionSort(kumpulanAngka));
+    console.log(insertionSort(kumpulanAngka));
+    console.log(mergeSort(kumpulanAngka));
+    
+
+    console.log('------ SEARCH ------')
+
+    const linearSearch = (array, toFind) => {
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] === toFind) {
+                return array[i]
+            }
+        }
+
+        return 'tidak ditemukan';
+    }
+
+    const filterSearch = (array, toFind) => {
+        return array.filter(item => {
+            return item === toFind;
+        })[0]
+    }
+
+    const binarySearch = (sortedArray, toFind) => {
+        let lowIndex = 0;
+        let highIndex = sortedArray.length - 1;
+
+        while (lowIndex <= highIndex) {
+            let midIndex = Math.floor((lowIndex + highIndex) / 2);
+            if (sortedArray[midIndex] == toFind) {
+                return midIndex;
+            } else if (sortedArray[midIndex] < toFind) {
+                lowIndex = midIndex + 1;
+            } else {
+                highIndex = midIndex - 1;
+            }
+        }
+
+        return null
+
+    }
+
+    console.log(linearSearch(kumpulanAngka, 1));
+    console.log(filterSearch(kumpulanAngka, 4));
+
+    const resultBinarySearch = binarySearch(selectionSort(kumpulanAngka), 9)
+    console.log(kumpulanAngka[resultBinarySearch]);
+</script>
+
