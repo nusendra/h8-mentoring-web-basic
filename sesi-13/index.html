@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TODO APP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  </head>
+  <body onload="displayData()">
+    <div class="container-fluid mx-auto bg-body-secondary">
+        <div class="text-center fs-2 mt-2">TODO APP</div>
+    </div>
+
+    <div class="input-group mb-3 mt-3">
+        <input type="text" id="add-todo" class="form-control" placeholder="Add new todo" aria-describedby="button-addon2">
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2" onClick="addTodo()">Add</button>
+    </div>      
+
+    <hr>
+
+    <ul class="list-group" id="todo-list">
+    </ul>
+  </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</html>
+
+<script>
+    let todos = [];
+    let list = "";
+
+    const addTodo = () => {
+        const todo = document.getElementById("add-todo").value;
+        todos.push({
+            name: todo,
+            isDone: false
+        });
+
+        localStorage.setItem('todos', JSON.stringify(todos));
+        displayData();
+
+        document.getElementById("add-todo").value = "";
+    }
+
+    const displayData = () => {
+        const data = localStorage.getItem('todos');
+
+        if (data) {
+            todos = JSON.parse(data);
+
+            list = "";
+            for (let i = 0; i < todos.length; i++) {
+                let value = "";
+                if (todos[i].isDone) {
+                    value = `<s>${todos[i].name}</s>`;
+                } else {
+                    value = todos[i].name;
+                }
+
+                list += `
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        ${value}
+                        <span>
+                            <button type="button" class="btn btn-primary btn-sm" onClick="setDone(${i})">Selesai</button>
+                            <button type="button" class="btn btn-danger btn-sm" onClick="deleteTodo(${i})">Delete</button>
+                        </span>
+                    </li>
+                `
+            }
+
+            document.getElementById("todo-list").innerHTML = list;
+        }
+    }
+
+    const setDone = (index) => {
+        todos = JSON.parse(localStorage.getItem('todos'));
+
+        todos[index].isDone = true;
+        localStorage.setItem('todos', JSON.stringify(todos));
+
+        displayData();
+    }
+
+    const deleteTodo = (index) => {
+        todos = JSON.parse(localStorage.getItem('todos'));
+
+        todos = todos.filter((item, id) => id !== index)
+        localStorage.setItem('todos', JSON.stringify(todos));
+
+        displayData();
+    }
+</script>
+
+
+<style>
+    body {
+        margin: auto;
+        width: 50%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    @media only screen and (max-width: 576px) {
+        body {
+            width: 100%;
+        }
+    }
+
+    @media only screen and (min-width: 576px) {
+        body {
+            width: 100%;
+        }
+    }
+
+    @media only screen and (min-width: 768px) {
+        body {
+            width: 85%;
+        }
+    }
+
+    @media only screen and (min-width: 992px) {
+        body {
+            width: 70%;
+        }
+    }
+
+    @media only screen and (min-width: 1200px) {
+        body {
+            width: 50%;
+        }
+    }
+</style>
