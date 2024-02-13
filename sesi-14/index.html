@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    // Sinkronus = Sync
+    // Asinkronus = Async
+
+    function tambahDua(nilai) {
+        return nilai + 2;
+    }
+
+    function tambah(a, b, fungsiTambahDua) {
+        let hasil = a + b;
+
+        return fungsiTambahDua(hasil);
+    }
+
+    let bla = tambah(1, 2, tambahDua);
+    console.log(bla)
+
+
+    // -------------------------------- CALLBACK
+
+    function rupiah(angka) {
+        return `Rp ${angka}`
+    }
+
+    function dollar(angka) {
+        return `$ ${angka}`
+    }
+
+    function totalHarga(harga1, harga2, currency) {
+        let hasil = harga1 + harga2;
+
+        return currency(hasil);
+    }
+
+    let hargaDalamRupiah = totalHarga(1000, 5000, rupiah);
+    let hargaDalamDollar = totalHarga(1000, 5000, dollar);
+
+    console.log(hargaDalamRupiah);
+    console.log(hargaDalamDollar);
+
+
+    // -------------------------------- PROMISE
+    console.log('//// PROMISE ////')
+
+    // console.log(1)
+    // setTimeout(() => {
+    //     console.log('halo')
+    // }, 2000) // 1000 ms = 1 s
+    // setTimeout(() => {
+    //     console.log('hacktiv')
+    // }, 1000)
+    // console.log(2)
+    // console.log(3)
+    // console.log(4)
+
+    const myPromise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('berhasil')
+            // reject('gagal')
+        }, 1000)
+    })
+
+    myPromise.then(val => {
+        console.log('success')
+        console.log(val)
+    }).catch(val => {
+        console.log('fail')
+        console.log(val)
+    })
+
+
+
+
+    const product = new Promise((resolve, reject) => {
+        setTimeout(resolve, 2000, ['tas', 'baju']);
+    });
+    const cart = new Promise((resolve, reject) => {
+        setTimeout(resolve, 1000, ['sepatu']);
+    });
+    const trending = new Promise((resolve, reject) => {
+        setTimeout(reject, 3000, 'gagal ambil data');
+    });
+
+
+    // Kalau promise berhubungan dengan promise lain, maka pakai Promise.all
+    // Tapi kalau tidak berhubungan, pakai Promise.allSettled
+
+    Promise.all([product, cart, trending]).then((values) => {
+        console.log(values);
+        // tampilkan data ke website
+    }).catch(failed => {
+        console.log(failed)
+        // tampilkan pesan error
+    });
+
+
+
+    // -------------------------------- ASYNC AWAIT
+    console.log('//// ASYNC AWAIT ////')
+
+
+    const idMurid = new Promise((resolve, reject) => {
+        setTimeout(resolve, 2000, 12);
+    })
+    const dataRaport = new Promise(id, (resolve, reject) => {
+        setTimeout(resolve, 1000, [100, 80]);
+    })
+
+
+    async function ambilData () {
+        const id = await idMurid.then(value => console.log(value))
+        const raport = dataRaport(id).then(value => console.log(value))
+
+        console.log(raport)
+    }
+
+    ambilData();
+</script>
